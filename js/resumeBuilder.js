@@ -50,7 +50,7 @@ bio.display = function() {
 var work = {
   "jobs": [
     {
-  	"employer" : "CDP",
+  	"employer" : "CDP (formerly Carbon Disclosure Project)",
   	"title" : "Technical Manager",
   	"dates" : "March 2014 - present",
   	"location" : "Berlin, Germany",
@@ -90,7 +90,8 @@ var projects = {
     {
     "title" : "Resume",
     "dates" : "2015",
-    "description" : "A resume in HTML, CSS and JavaScript"
+    "description" : "A resume in HTML, CSS and JavaScript",
+    "images" : []
     }
   ]
 }
@@ -124,17 +125,48 @@ var education = {
 		{
 			"name": "Imperial College London",
 			"location": "London, UK",
-			"degree": "Energy Policy, MSc",
-			"dates": "2012-2013"		
+			"degree": "Master of Science, Environmental Technology (Energy Policy)",
+			"majors": ["Energy Policy"],
+			"dates": "September 2013",
+			"url": "http://www.imperial.ac.uk/"
+		},
+		{
+			"name": "Bocconi University",
+			"location": "Milan, Italy",
+			"degree": "Master of Science, Economics and Management",
+			"majors": ["Economics", "Management"],
+			"dates": "December 2006",
+			"url": "http://www.unibocconi.it"
+		},
+		{
+			"name": "Bocconi University",
+			"location": "Milan, Italy",
+			"degree": "Undergraduate degree, Economics and Management",
+			"majors": ["Economics", "Management"],
+			"dates": "July 2004",
+			"url": "http://www.unibocconi.it"
 		}
 	],
 	"onlineCourses": [
 		{
+			"title": "Front-end Web Developer Nanodegree",
+			"school": "Udacity",
+			"dates": 2016,
+			"url": "https://www.udacity.com/nanodegrees"
+		},
+		{
 			"title": "Full Stack Web Developer Nanodegree",
 			"school": "Udacity",
-			"dates": "2015"
+			"dates": 2015,
+			"url": "https://www.udacity.com/nanodegrees"
+		},
+		{
+			"title": "Intro to Programming Nanodegree",
+			"school": "Udacity",
+			"dates": 2015,
+			"url": "https://www.udacity.com/nanodegrees"
 		}
-	]
+	],
 };
 
 // education function
@@ -146,12 +178,16 @@ education.display = function() {
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
         var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-		$(".education-entry:last").append(formattedDates);
+        var formattedMajor = HTMLschoolLocation.replace("%data%", education.schools[school.majors]);
 		$(".education-entry:last").append(formattedSchoolName);
-		$(".education-entry:last").append(formattedDegree);
+		$(".education-entry:last").append(formattedDates);
 		$(".education-entry:last").append(formattedLocation);
-
+		$(".education-entry:last").append(formattedDegree);
 	}
+
+	$("#education").append(HTMLonlineClasses);
+	// for 
+
 
 }
 
