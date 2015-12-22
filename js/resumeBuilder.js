@@ -11,7 +11,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Full stack web developer in training at Udacity. Passionate about solving societal and environmental problems, with eight years’ business consulting and non-profit experience in Asia and Europe.",
 	"skills" : [
-	"HTML", "CSS", "JavaScript", "Swift"
+	"HTML5", "CSS3", "JavaScript", "Git/GitHub", "Python", "Swift", "SQL"
 	],
 	"pic" : "images/rz.jpg"
 }
@@ -35,6 +35,10 @@ bio.display = function() {
 	$("#topContacts").append(formattedTwitter);	
 	$("#header").append(formattedBioPic);
 	$("#header").append(formattedWelcomeMsg);
+	$("#footerContacts").append(formattedLocation);
+    $("#footerContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedGithub);
+	$("#footerContacts").append(formattedTwitter);
 
     if (bio.skills.length > 0) {
     	$("#header").append(HTMLskillsStart);
@@ -62,6 +66,20 @@ var work = {
     "dates" : "August 2011 - April 2012",
     "location" : "Mumbai, India",
     "description" : "Created opportunities for 20+ Italian SMEs, helping them to increase sales and launch joint ventures in India."
+    },
+    {
+    "employer" : "ICICI Prudential Life Insurance Company",
+    "title" : "Microinsurance Fellow",
+    "dates" : "June 2010 - July 2011",
+    "location" : "Guwahati, India",
+    "description" : "Managed the production of a financial education campaign delivered to 10,000+ customers and family members."
+    },
+    {
+    "employer" : "Intellecap",
+    "title" : "Business Consultant",
+    "dates" : "January 2007 - May 2010",
+    "location" : "Hyderabad, India",
+    "description" : "Developed business plans and growth strategies for pro-poor business models and social enterprises in India."
     }
   ]
 }
@@ -90,7 +108,37 @@ var projects = {
     {
     "title" : "Resume",
     "dates" : "2015",
-    "description" : "A resume in HTML, CSS and JavaScript",
+    "description" : "A simple resume coded in HTML, CSS and JavaScript.",
+    "images" : []
+    },
+    {
+    "title" : "Linux Server Setup",
+    "dates" : "2015",
+    "description" : "Configured a baseline installation of Ubuntu Linux to host a Flask web application developed in Python.",
+    "images" : []
+    },
+    {
+    "title" : "Conference Organisation App API",
+    "dates" : "2015",
+    "description" : "Using Google App Engine's Endpoints API, built the Python backend to support a web- and Android-based application.",
+    "images" : []
+    },
+    {
+    "title" : "Catalog App",
+    "dates" : "2015",
+    "description" : "Developed a content management system using the Flask framework in Python.",
+    "images" : []
+    },
+    {
+    "title" : "Tournament Results Database",
+    "dates" : "2015",
+    "description" : "Built a PostgreSQL relational database scheme to store the results of a game tournament.",
+    "images" : []
+    },
+    {
+    "title" : "Movie Trailer Website",
+    "dates" : "2015",
+    "description" : "Server-side code in Python to store a list of my favorite movies, including box art imagery and a movie trailer URL.",
     "images" : []
     }
   ]
@@ -98,25 +146,25 @@ var projects = {
 
 // projects function
 projects.display = function() {
-	for (project in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
+  for (project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
 
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		$(".project-entry:last").append(formattedTitle);
+    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formattedTitle);
 
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last").append(formattedDates);
+    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formattedDates);
 
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last").append(formattedDescription);
+    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formattedDescription);
 
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project.images]) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}
-		}
-	}
+    if (projects.projects[project].images.length > 0) {
+      for (image in projects.projects[project.images]) {
+	    var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedImage);
+      }
+    }
+  }
 }
 
 // education JSON
@@ -186,9 +234,17 @@ education.display = function() {
 	}
 
 	$("#education").append(HTMLonlineClasses);
-	// for 
-
-
+	for (course in education.onlineCourses) {
+		$("#education").append(HTMLschoolStart);
+		var formattedCourse = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+		var formattedSchoolName = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+		var onlineCourse = formattedCourse + formattedSchoolName
+		var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates)
+		var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url)
+        $(".education-entry:last").append(onlineCourse);
+        $(".education-entry:last").append(formattedDates);
+        // $(".education-entry:last").append(formattedURL);
+	}
 }
 
 // call bio, work, education, projects functions
