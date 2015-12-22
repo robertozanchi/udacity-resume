@@ -61,6 +61,9 @@ h5 {
 
 }
 
+.project-image {
+  max-width: 35%;
+}
 
 .date-text {
   font-style: italic;
@@ -129,7 +132,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #8f3624;
 }
 
 .flex-box {

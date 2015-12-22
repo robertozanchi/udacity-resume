@@ -1,53 +1,52 @@
 // bio JSON 
 var bio = {
-	"name" : "Roberto Zanchi",
-	"role" : "Web Developer",
-	"contacts" : {
-		"mobile" : "1234556",
-		"email" : "r.zanchi@gmail.com",
-		"github" : "robertozanchi",
-		"twitter" : "@robertozanchi",
-		"location" : "Berlin, Germany"
-	},
-	"welcomeMessage" : "Full stack web developer in training at Udacity. Passionate about solving societal and environmental problems, with eight years’ business consulting and non-profit experience in Asia and Europe.",
-	"skills" : [
-	"HTML5", "CSS3", "JavaScript", "Git/GitHub", "Python", "Swift", "SQL"
-	],
-	"pic" : "images/rz.jpg"
+  "name" : "Roberto Zanchi",
+  "role" : "Web Developer",
+  "contacts" : {
+    "mobile" : "1234556",
+    "email" : "r.zanchi@gmail.com",
+    "github" : "robertozanchi",
+    "twitter" : "@robertozanchi",
+    "location" : "Berlin, Germany"
+  },
+  "welcomeMessage" : "Full stack web developer in training at Udacity. Passionate about solving societal and environmental problems, with eight years’ business consulting and non-profit experience in Asia and Europe.",
+  "skills" : [
+  "HTML5", "CSS3", "JavaScript", "Git/GitHub", "Python", "Swift", "SQL"
+  ],
+  "pic" : "images/rz.jpg"
 }
 
 // bio function
 bio.display = function() {
-	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts["twitter"]);
-	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio["pic"]);
-	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts["twitter"]);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio["pic"]);
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
-	$("#topContacts").append(formattedLocation);
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedGithub);
-	$("#topContacts").append(formattedTwitter);	
-	$("#header").append(formattedBioPic);
-	$("#header").append(formattedWelcomeMsg);
-	$("#footerContacts").append(formattedLocation);
-    $("#footerContacts").append(formattedEmail);
-    $("#footerContacts").append(formattedGithub);
-	$("#footerContacts").append(formattedTwitter);
+  $("#header").prepend(formattedRole);
+  $("#header").prepend(formattedName);
+  $("#topContacts").append(formattedLocation);
+  $("#topContacts").append(formattedEmail);
+  $("#topContacts").append(formattedGithub);
+  $("#topContacts").append(formattedTwitter);
+  $("#header").append(formattedBioPic);
+  $("#header").append(formattedWelcomeMsg);
+  $("#footerContacts").append(formattedLocation);
+  $("#footerContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedGithub);
+  $("#footerContacts").append(formattedTwitter);
 
-    if (bio.skills.length > 0) {
-    	$("#header").append(HTMLskillsStart);
-        for (skill in bio.skills) {
-        	var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-            $("#skills").append(formattedSkill);
-        }
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    for (skill in bio.skills) {
+      var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+      $("#skills").append(formattedSkill);
     }
-
+  }
 }
 
 // work JSON
@@ -109,37 +108,25 @@ var projects = {
     "title" : "Resume",
     "dates" : "2015",
     "description" : "A simple resume coded in HTML, CSS and JavaScript.",
-    "images" : []
-    },
-    {
-    "title" : "Linux Server Setup",
-    "dates" : "2015",
-    "description" : "Configured a baseline installation of Ubuntu Linux to host a Flask web application developed in Python.",
-    "images" : []
+    "images" : ["images/resume.png",]
     },
     {
     "title" : "Conference Organisation App API",
     "dates" : "2015",
     "description" : "Using Google App Engine's Endpoints API, built the Python backend to support a web- and Android-based application.",
-    "images" : []
+    "images" : ["images/api-app_1x.png"]
     },
     {
     "title" : "Catalog App",
     "dates" : "2015",
     "description" : "Developed a content management system using the Flask framework in Python.",
-    "images" : []
-    },
-    {
-    "title" : "Tournament Results Database",
-    "dates" : "2015",
-    "description" : "Built a PostgreSQL relational database scheme to store the results of a game tournament.",
-    "images" : []
+    "images" : ["images/catalog-app_1x.png"]
     },
     {
     "title" : "Movie Trailer Website",
     "dates" : "2015",
     "description" : "Server-side code in Python to store a list of my favorite movies, including box art imagery and a movie trailer URL.",
-    "images" : []
+    "images" : ["images/movie-website_1x.png"]
     }
   ]
 }
@@ -159,7 +146,7 @@ projects.display = function() {
     $(".project-entry:last").append(formattedDescription);
 
     if (projects.projects[project].images.length > 0) {
-      for (image in projects.projects[project.images]) {
+      for (image in projects.projects[project].images) {
 	    var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
         $(".project-entry:last").append(formattedImage);
       }
@@ -169,52 +156,52 @@ projects.display = function() {
 
 // education JSON
 var education = {
-	"schools": [
-		{
-			"name": "Imperial College London",
-			"location": "London, UK",
-			"degree": "Master of Science, Environmental Technology (Energy Policy)",
-			"majors": ["Energy Policy"],
-			"dates": "September 2013",
-			"url": "http://www.imperial.ac.uk/"
-		},
-		{
-			"name": "Bocconi University",
-			"location": "Milan, Italy",
-			"degree": "Master of Science, Economics and Management",
-			"majors": ["Economics", "Management"],
-			"dates": "December 2006",
-			"url": "http://www.unibocconi.it"
-		},
-		{
-			"name": "Bocconi University",
-			"location": "Milan, Italy",
-			"degree": "Undergraduate degree, Economics and Management",
-			"majors": ["Economics", "Management"],
-			"dates": "July 2004",
-			"url": "http://www.unibocconi.it"
-		}
-	],
-	"onlineCourses": [
-		{
-			"title": "Front-end Web Developer Nanodegree",
-			"school": "Udacity",
-			"dates": 2016,
-			"url": "https://www.udacity.com/nanodegrees"
-		},
-		{
-			"title": "Full Stack Web Developer Nanodegree",
-			"school": "Udacity",
-			"dates": 2015,
-			"url": "https://www.udacity.com/nanodegrees"
-		},
-		{
-			"title": "Intro to Programming Nanodegree",
-			"school": "Udacity",
-			"dates": 2015,
-			"url": "https://www.udacity.com/nanodegrees"
-		}
-	],
+  "schools": [
+  {
+    "name": "Imperial College London",
+    "location": "London, UK",
+    "degree": "Master of Science, Environmental Technology (Energy Policy)",
+    "majors": ["Energy Policy"],
+    "dates": "September 2013",
+    "url": "http://www.imperial.ac.uk/"
+  },
+  {
+    "name": "Bocconi University",
+    "location": "Milan, Italy",
+    "degree": "Master of Science, Economics and Management",
+    "majors": ["Economics", "Management"],
+    "dates": "December 2006",
+    "url": "http://www.unibocconi.it"
+  },
+  {
+  	"name": "Bocconi University",
+  	"location": "Milan, Italy",
+  	"degree": "Undergraduate degree, Economics and Management",
+  	"majors": ["Economics", "Management"],
+  	"dates": "July 2004",
+  	"url": "http://www.unibocconi.it"
+  }
+  ],
+  "onlineCourses": [
+  {
+  	"title": "Front-end Web Developer Nanodegree",
+  	"school": "Udacity",
+  	"dates": 2016,
+  	"url": "https://www.udacity.com/nanodegrees"
+  },
+  {
+  	"title": "Full Stack Web Developer Nanodegree",
+  	"school": "Udacity",
+  	"dates": 2015,
+  	"url": "https://www.udacity.com/nanodegrees"
+  },
+  {
+  	"title": "Intro to Programming Nanodegree",
+  	"school": "Udacity",
+  	"dates": 2015,
+  	"url": "https://www.udacity.com/nanodegrees"
+  }
+  ]
 };
 
 // education function
