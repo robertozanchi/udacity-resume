@@ -1,20 +1,20 @@
 // bio JSON 
 var bio = {
-  "name" : "Roberto Zanchi",
-  "role" : "Web Developer",
+  "name" : 'Roberto Zanchi',
+  "role" : 'Web Developer',
   "contacts" : {
-    "mobile" : "1234556",
-    "email" : "r.zanchi@gmail.com",
-    "github" : "robertozanchi",
-    "twitter" : "@robertozanchi",
-    "location" : "Berlin, Germany"
+    "mobile" : '1234556',
+    "email" : 'r.zanchi@gmail.com',
+    "github" : 'robertozanchi',
+    "twitter" : '@robertozanchi',
+    "location" : 'Berlin, Germany'
   },
-  "welcomeMessage" : "Full stack web developer in training at Udacity. Passionate about solving societal and environmental problems, with eight years’ business consulting and non-profit experience in Asia and Europe.",
+  "welcomeMessage" : 'Full stack web developer in training at Udacity. Passionate about solving societal and environmental problems, with eight years’ business consulting and non-profit experience in Asia and Europe.',
   "skills" : [
-  "HTML5", "CSS3", "JavaScript", "Git/GitHub", "Python", "Swift", "SQL"
+  'HTML5', 'CSS3', 'JavaScript', 'Git/GitHub', 'Python', 'Swift', 'SQL'
   ],
-  "pic" : "images/rz.jpg"
-}
+  "pic" : 'images/rz.jpg'
+};
 
 // bio function
 bio.display = function() {
@@ -42,7 +42,7 @@ bio.display = function() {
 
   if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
-    for (skill in bio.skills) {
+    for (var skill in bio.skills) {
       var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
       $("#skills").append(formattedSkill);
     }
@@ -53,35 +53,35 @@ bio.display = function() {
 var work = {
   "jobs": [
     {
-  	"employer" : "CDP (formerly Carbon Disclosure Project)",
-  	"title" : "Technical Manager",
-  	"dates" : "March 2014 - present",
-  	"location" : "Berlin, Germany",
-  	"description" : "Manage a technical working group of 8 experts to guide 50 multinational corporations on renewable energy options."
+  	"employer" : 'CDP (formerly Carbon Disclosure Project)',
+  	"title" : 'Technical Manager',
+  	"dates" : 'March 2014 - present',
+  	"location" : 'Berlin, Germany',
+  	"description" : 'Manage a technical working group of 8 experts to guide 50 multinational corporations on renewable energy options.'
     },
     {
-    "employer" : "The Indo-Italian Chamber of Commerce and Industry",
-    "title" : "Project Manager",
-    "dates" : "August 2011 - April 2012",
-    "location" : "Mumbai, India",
-    "description" : "Created opportunities for 20+ Italian SMEs, helping them to increase sales and launch joint ventures in India."
+    "employer" : 'The Indo-Italian Chamber of Commerce and Industry',
+    "title" : 'Project Manager',
+    "dates" : 'August 2011 - April 2012',
+    "location" : 'Mumbai, India',
+    "description" : 'Created opportunities for 20+ Italian SMEs, helping them to increase sales and launch joint ventures in India.'
     },
     {
-    "employer" : "ICICI Prudential Life Insurance Company",
-    "title" : "Microinsurance Fellow",
-    "dates" : "June 2010 - July 2011",
-    "location" : "Guwahati, India",
-    "description" : "Managed the production of a financial education campaign delivered to 10,000+ customers and family members."
+    "employer" : 'ICICI Prudential Life Insurance Company',
+    "title" : 'Microinsurance Fellow',
+    "dates" : 'June 2010 - July 2011',
+    "location" : 'Guwahati, India',
+    "description" : 'Managed the production of a financial education campaign delivered to 10,000+ customers and family members.'
     },
     {
-    "employer" : "Intellecap",
-    "title" : "Business Consultant",
-    "dates" : "January 2007 - May 2010",
-    "location" : "Hyderabad, India",
-    "description" : "Developed business plans and growth strategies for pro-poor business models and social enterprises in India."
+    "employer" : 'Intellecap',
+    "title" : 'Business Consultant',
+    "dates" : 'January 2007 - May 2010',
+    "location" : 'Hyderabad, India',
+    "description" : 'Developed business plans and growth strategies for pro-poor business models and social enterprises in India.'
     }
   ]
-}
+};
 
 // work function
 work.display = function() {
@@ -105,35 +105,35 @@ work.display = function() {
 var projects = {
   "projects" : [
     {
-    "title" : "Resume",
-    "dates" : "2015",
-    "description" : "A simple resume coded in HTML, CSS and JavaScript.",
-    "images" : ["images/resume.png",]
+    "title" : 'Resume',
+    "dates" : '2015',
+    "description" : 'A simple resume coded in HTML, CSS and JavaScript.',
+    "images" : ['images/resume.png']
     },
     {
-    "title" : "Conference Organisation App API",
-    "dates" : "2015",
-    "description" : "Using Google App Engine's Endpoints API, built the Python backend to support a web- and Android-based application.",
+    "title" : 'Conference Organisation App API',
+    "dates" : '2015',
+    "description" : 'Using Google App Engine&#39;s Endpoints API, built the Python backend to support a web- and Android-based application.',
     "images" : ["images/api-app_1x.png"]
     },
     {
-    "title" : "Catalog App",
-    "dates" : "2015",
-    "description" : "Developed a content management system using the Flask framework in Python.",
-    "images" : ["images/catalog-app_1x.png"]
+    "title" : 'Catalog App',
+    "dates" : '2015',
+    "description" : 'Developed a content management system using the Flask framework in Python.',
+    "images" : ['images/catalog-app_1x.png']
     },
     {
-    "title" : "Movie Trailer Website",
-    "dates" : "2015",
-    "description" : "Server-side code in Python to store a list of my favorite movies, including box art imagery and a movie trailer URL.",
-    "images" : ["images/movie-website_1x.png"]
+    "title" : 'Movie Trailer Website',
+    "dates" : '2015',
+    "description" : 'Server-side code in Python to store a list of my favorite movies, including box art imagery and a movie trailer URL.',
+    "images" : ['images/movie-website_1x.png']
     }
   ]
-}
+};
 
 // projects function
 projects.display = function() {
-  for (project in projects.projects) {
+  for (var project in projects.projects) {
     $("#projects").append(HTMLprojectStart);
 
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -146,7 +146,7 @@ projects.display = function() {
     $(".project-entry:last").append(formattedDescription);
 
     if (projects.projects[project].images.length > 0) {
-      for (image in projects.projects[project].images) {
+      for (var image in projects.projects[project].images) {
 	    var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
         $(".project-entry:last").append(formattedImage);
       }
@@ -158,55 +158,55 @@ projects.display = function() {
 var education = {
   "schools": [
   {
-    "name": "Imperial College London",
-    "location": "London, UK",
-    "degree": "Master of Science, Environmental Technology (Energy Policy)",
-    "majors": ["Energy Policy"],
-    "dates": "September 2013",
-    "url": "http://www.imperial.ac.uk/"
+    "name": 'Imperial College London',
+    "location": 'London, UK',
+    "degree": 'Master of Science, Environmental Technology (Energy Policy)',
+    "majors": ['Energy Policy'],
+    "dates": 'September 2013',
+    "url": 'http://www.imperial.ac.uk/'
   },
   {
-    "name": "Bocconi University",
-    "location": "Milan, Italy",
-    "degree": "Master of Science, Economics and Management",
-    "majors": ["Economics", "Management"],
-    "dates": "December 2006",
-    "url": "http://www.unibocconi.it"
+    "name": 'Bocconi University',
+    "location": 'Milan, Italy',
+    "degree": 'Master of Science, Economics and Management',
+    "majors": ['Economics', 'Management'],
+    "dates": 'December 2006',
+    "url": 'http://www.unibocconi.it'
   },
   {
-  	"name": "Bocconi University",
-  	"location": "Milan, Italy",
-  	"degree": "Undergraduate degree, Economics and Management",
-  	"majors": ["Economics", "Management"],
-  	"dates": "July 2004",
-  	"url": "http://www.unibocconi.it"
+  	"name": 'Bocconi University',
+  	"location": 'Milan, Italy',
+  	"degree": 'Undergraduate degree, Economics and Management',
+  	"majors": ['Economics', 'Management'],
+  	"dates": 'July 2004',
+  	"url": 'http://www.unibocconi.it'
   }
   ],
   "onlineCourses": [
   {
-  	"title": "Front-end Web Developer Nanodegree",
-  	"school": "Udacity",
+  	"title": 'Front-end Web Developer Nanodegree',
+  	"school": 'Udacity',
   	"dates": 2016,
-  	"url": "https://www.udacity.com/nanodegrees"
+  	"url": 'https://www.udacity.com/nanodegrees'
   },
   {
-  	"title": "Full Stack Web Developer Nanodegree",
-  	"school": "Udacity",
+  	"title": 'Full Stack Web Developer Nanodegree',
+  	"school": 'Udacity',
   	"dates": 2015,
-  	"url": "https://www.udacity.com/nanodegrees"
+  	"url": 'https://www.udacity.com/nanodegrees'
   },
   {
-  	"title": "Intro to Programming Nanodegree",
-  	"school": "Udacity",
+  	"title": 'Intro to Programming Nanodegree',
+  	"school": 'Udacity',
   	"dates": 2015,
-  	"url": "https://www.udacity.com/nanodegrees"
+  	"url": 'https://www.udacity.com/nanodegrees'
   }
   ]
 };
 
 // education function
 education.display = function() {
-	for (school in education.schools) {
+	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
@@ -221,7 +221,7 @@ education.display = function() {
 	}
 
 	$("#education").append(HTMLonlineClasses);
-	for (course in education.onlineCourses) {
+	for (var course in education.onlineCourses) {
 		$("#education").append(HTMLschoolStart);
 		var formattedCourse = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
 		var formattedSchoolName = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
